@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./index.css">
+    <title>Personal Portfolio</title>
+    <script src="https://kit.fontawesome.com/d5e11b4ec0.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <div id="header">
+        <div class="container">
+            <nav>
+                <img src="./logo1-removebg-preview.png" class="logo">
+                <ul id="sidemenu">
+                    <li><a href="#header">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#portfolio">Portfolio</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                    <i class="fa-solid fa-xmark" onclick="closemenu()"></i>
+                </ul>
+                <i class="fa-sharp fa-solid fa-bars" onclick="openmenu()"></i>
+            </nav>
+            <div id="home">
+                <div class="header-text">
+                    <h1>Hello,</h1>
+                    <p>WELCOME to <br>my Portfolio</p>
+                </div>
+
+                <div class="holder">
+                    <div class="wrapper">
+                        <a href="#">
+                            <img src="./profile.jpg" alt="">
+                        </a>
+                        <div class="title">Claudia Ihirwe</div>
+                        <div class="place">Kigali-RWANDA</div>
+                    </div>
+                    <div class="content">
+                        <p>User Interface Designer and <br>back-end developer</p>
+                        <div class="buttons">
+                            <div class="btn">
+                                <button> <a href="#messages">Message</a></button>
+                            </div>
+                            <div class="btn">
+                                <button> <a href="https://github.com/Miroriana?tab=following"> Following</a></button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="icons">
+                        <li><a href="https://www.facebook.com/profile.php?id=100086238405349" target="_blank"><span><i
+                                        class="fa-brands fa-facebook"></i></span></a></li>
+                        <li><a href="https://github.com/Miroriana" target="_blank"><span><i
+                                        class="fa-brands fa-github"></i></span></a></li>
+                        <li><a href="https://www.instagram.com/___c_est___mignonne/" target="_blank"><span><i
+                                        class="fa-brands fa-instagram"></i></span></a></li>
+                        <li><a href="https://www.linkedin.com/in/shumbusho-ihirwe-claudia-762490218/"
+                                target="_blank"><span><i class="fa-brands fa-linkedin-in"></i></span></a></li>
+                    </div>
+                </div>
+                <script>
+                    var img = document.querySelector("img");
+
+                    img.onclick = function () {
+                        // this.style.opacity = "0";
+                        if (this.classList.contains("active")) {
+                            this.classList.remove("active");
+                        } else {
+                            this.classList.add("active");
+                        }
+                    };
+                </script>
+
+            </div>
+
+        </div>
+    </div>
+    <!-- ---------------about------- -->
+    <div id="about">
+        <div class="container">
+            <div class="row">
+                <div class="about-col1">
+                    <img src="./user.jpg" alt="">
+                </div>
+                <div class="about-col2">
+                    <h1 class="sub-title">About Me</h1>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Blanditiis totam minima temporibus
+                        aliquam nemo dolore. Ullam reprehenderit a ipsam odit ab! Tenetur culpa nihil omnis quod, eius
+                        et maiores exercitationem.</p>
+                    <div class="about-card-titles">
+                        <p class="links active-link" onclick="opentab('skills')">Skills</p>
+                        <p class="links" onclick="opentab('experience')">Experience</p>
+                        <p class="links" onclick="opentab('education')">Education</p>
+                    </div>
+                    <div id="skills" class="about-card-content active-content">
+                        <ul>
+                            <li><span>SOFTWARE</span><br>Developer</li>
+                            <li><span>Web Development</span><br>Web App Development</li>
+                            <li><span>App Development</span><br>Building Android/iOS apps</li>
+                        </ul>
+                    </div>
+                    <div id="experience" class="about-card-content">
+                        <ul>
+                            <li><span>Hardware</span><br>Developer</li>
+                            <li><span>Web Development</span><br>Web App Development</li>
+                            <li><span>App Development</span><br>Building Android/iOS apps</li>
+                        </ul>
+                    </div>
+                    <div id="education" class="about-card-content">
+                        <ul>
+                            <li><span>Malware</span><br>Developer</li>
+                            <li><span>Web Development</span><br>Web App Development</li>
+                            <li><span>App Development</span><br>Building Android/iOS apps</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- ------------------services--------------- -->
+    <div id="services">
+        <div class="container">
+            <h1 class="sub-title">My Services</h1>
+            <div class="services-list">
+                <div>
+                    <i class="fas fa-code"></i>
+                    <h2>Web Design</h2>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Explicabo, beatae nesciunt harum ea
+                        illum sequi possimus inventore eveniet iste illo officia nisi nihil voluptas deleniti tempore,
+                        numquam consequuntur quod? Id!</p>
+                    <a href="#">Learn more</a>
+                </div>
+                <div>
+                    <i class="fa-solid fa-crop"></i>
+                    <h2>Word Pressor</h2>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Explicabo, beatae nesciunt harum ea
+                        illum sequi possimus inventore eveniet iste illo officia nisi nihil voluptas deleniti tempore,
+                        numquam consequuntur quod? Id!</p>
+                    <a href="#">Learn more</a>
+                </div>
+                <div>
+                    <i class="fa-brands fa-app-store"></i>
+                    <h2>App Design</h2>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Explicabo, beatae nesciunt harum ea
+                        illum sequi possimus inventore eveniet iste illo officia nisi nihil voluptas deleniti tempore,
+                        numquam consequuntur quod? Id!</p>
+                    <a href="#">Learn more</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="portfolio">
+        <div class="container">
+            <h1 class="sub-title">My Work</h1>
+            <div class="work-list">
+                <div class="work">
+                    <img src="./img11.jpg">
+                    <div class="layer">
+                        <h3>Social Media App</h3>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Cupiditate mollitia quisquam
+                            temporibus sequi at nobis distinctio iste consequatur aperiam, laudantium incidunt. Libero
+                            nesciunt beatae dicta fugiat quam natus harum praesentium!</p>
+                        <a href="#"><i class="fa-sharp fa-solid fa-up-right-from-square"></i></a>
+                    </div>
+                </div>
+                <div class="work">
+                    <img src="./img8.jpg">
+                    <div class="layer">
+                        <h3>Music App</h3>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Cupiditate mollitia quisquam
+                            temporibus sequi at nobis distinctio iste consequatur aperiam, laudantium incidunt. Libero
+                            nesciunt beatae dicta fugiat quam natus harum praesentium!</p>
+                        <a href="#"><i class="fa-sharp fa-solid fa-up-right-from-square"></i></a>
+                    </div>
+                </div>
+                <div class="work">
+                    <img src="./img7.jpg">
+                    <div class="layer">
+                        <h3>Game</h3>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Cupiditate mollitia quisquam
+                            temporibus sequi at nobis distinctio iste consequatur aperiam, laudantium incidunt. Libero
+                            nesciunt beatae dicta fugiat quam natus harum praesentium!</p>
+                        <a href="#"><i class="fa-sharp fa-solid fa-up-right-from-square"></i></a>
+                    </div>
+                </div>
+            </div>
+            <a href="#" class="between">See more</a>
+        </div>
+    </div>
+    <!-- -----------------------contact------------------ -->
+    <div id="contact">
+        <div class="container">
+            <div class="row">
+                <div class="contact-left">
+                    <h1 class="sub-title">Contact Me</h1>
+                    <p><i class="fa-sharp fa-solid fa-paper-plane"></i>shumbushoihirweclaudia@gmail.com</p>
+                    <p><i class="fa-solid fa-phone"></i>+250 793 048 181</p>
+                    <p><i class="fa-solid fa-message"></i></box-icon>+250 799 373 382</p>
+                    <div class="social-icons">
+                        <a href="#"><i class="fa-brands fa-twitter"></i></a>
+                        <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                        <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+                        <a href="#"><i class="fa-brands fa-linkedin-in"></i></a>
+                    </div>
+                    <a href="./mycv.docx" download class="between between2"> Download CV</a>
+
+                </div>
+                <div class="contact-right">
+                    <form name="submit-to-google-sheet" id="messages">
+                        <input type="text" name="Name" placeholder="Your name" required>
+                        <input type="email" name="Email" placeholder="Your email" required>
+                        <textarea name="Message" id="" rows="6" placeholder="Your Message"></textarea>
+                        <button type="submit" class="between between2">Submit</button>
+                    </form>
+                    <span id="msg"></span>
+                </div>
+            </div>
+
+        </div>
+        <div class="copyright">
+            <p>Copyright <i class="fa-solid fa-heart"></i> Claudia</p>
+        </div>
+    </div>
+
+    <!-- ---------------------javascript for profile card------------------------ -->
+
+
+    <!-- ------------------------javascript for about--------------- -->
+    <script>
+        var tablinks = document.getElementsByClassName("links");
+        var tabcontents = document.getElementsByClassName("about-card-content");
+        function opentab(tabname) {
+            for (tablink of tablinks) {
+                tablink.classList.remove("active-link");
+            }
+            for (tabcontent of tabcontents) {
+                tabcontent.classList.remove("active-content");
+            }
+            event.currentTarget.classList.add("active-link");
+            document.getElementById(tabname).classList.add("active-content");
+        }
+    </script>
+    <!-- ----------------------sidebar menu-------------- -->
+    <script>
+        var sidemenu = document.getElementById("sidemenu");
+        function openmenu() {
+            sidemenu.style.right = "0";
+        }
+        function closemenu() {
+            sidemenu.style.right = "-200px";
+        }
+    </script>
+    <!-- -----------------deploying-------------- -->
+    <script>
+        const scriptURL = 'https://script.google.com/macros/s/AKfycbx-fSOrTHNw0PnuOTxIJsK-zu7tBY7Lqy9kMZOPYE7RfpWI2WIvJzvFSpR8BHmh8Zuu/exec'
+        const form = document.forms['submit-to-google-sheet']
+        const msg = document.getElementById("msg")
+
+        form.addEventListener('submit', e => {
+            e.preventDefault()
+            fetch(scriptURL, { method: 'POST', body: new FormData(form) })
+                .then(response => {
+                    msg.innerHTML = "Good!!!,  Your message was sent successfully."
+                    setTimeout(function () {
+                        msg.innerHTML = ""
+                    }, 5000)
+                    form.reset()
+                })
+                .catch(error => console.error('Error!', error.message))
+        })
+    </script>
+</body>
+
+</html>
