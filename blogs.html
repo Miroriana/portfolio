@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive Blog Cards</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://kit.fontawesome.com/d5e11b4ec0.js" crossorigin="anonymous"></script>
+
+
+</head>
+
+<body>
+    <div id="blogs">
+        <!-- <div id="container"> -->
+            <h1 class="sub-title">Blogs</h1>
+            <div id="blogs-list">
+                <div class="blog">
+                    <img src="./img11.jpg" alt="Blog Image">
+                    <div class="layer">
+                        <h3>Social Media App 1</h3>
+                        <p>
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Cupiditate mollitia quisquam
+                            temporibus sequi at nobis distinctio iste consequatur aperiam, laudantium incidunt. Libero
+                            nesciunt beatae dicta fugiat quam natus harum praesentium!
+                        </p>
+                        <div class="actions">
+                            <button class="learn-more" data-id="1"><i class="fas fa-info-circle"></i> Learn
+                                More</button>
+                            <button class="like-btn" data-id="1"><i class="far fa-heart"></i> Like</button>
+                            <button class="comment-btn" data-id="1"><i class="far fa-comments"></i> Comment</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="blog">
+                    <img src="./img11.jpg" alt="Blog Image">
+                    <div class="layer">
+                        <h3>Social Media App 2</h3>
+                        <p>
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Cupiditate mollitia quisquam
+                            temporibus sequi at nobis distinctio iste consequatur aperiam, laudantium incidunt. Libero
+                            nesciunt beatae dicta fugiat quam natus harum praesentium!
+                        </p>
+                        <div class="actions">
+                            <button class="learn-more" data-id="2"><i class="fas fa-info-circle"></i> Learn
+                                More</button>
+                            <button class="like-btn" data-id="2"><i class="far fa-heart"></i> Like</button>
+                            <button class="comment-btn" data-id="2"><i class="far fa-comments"></i> Comment</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="blog">
+                    <img src="./img11.jpg" alt="Blog Image">
+                    <div class="layer">
+                        <h3>Social Media App 3</h3>
+                        <p>
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Cupiditate mollitia quisquam
+                            temporibus sequi at nobis distinctio iste consequatur aperiam, laudantium incidunt. Libero
+                            nesciunt beatae dicta fugiat quam natus harum praesentium!
+                        </p>
+                        <div class="actions">
+                            <button class="learn-more" data-id="3"><i class="fas fa-info-circle"></i> Learn
+                                More</button>
+                            <button class="like-btn" data-id="3"><i class="far fa-heart"></i> Like</button>
+                            <button class="comment-btn" data-id="3"><i class="far fa-comments"></i> Comment</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        <!-- </div> -->
+    </div>
+
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+    <script>
+        const blogCards = document.querySelectorAll('.blog');
+
+        blogCards.forEach(card => {
+            const learnMoreBtn = card.querySelector('.learn-more');
+            const likeBtn = card.querySelector('.like-btn');
+            const commentBtn = card.querySelector('.comment-btn');
+
+            learnMoreBtn.addEventListener('click', () => {
+                const blogId = learnMoreBtn.getAttribute('data-id');
+                // Redirect to another page with the blog details
+                window.location.href = `blogs-detail.html?id=${blogId}`;
+            });
+
+            likeBtn.addEventListener('click', () => {
+                likeBtn.classList.toggle('liked');
+            });
+
+            commentBtn.addEventListener('click', () => {
+                const commentsSection = card.querySelector('.comments-section');
+                commentsSection.classList.toggle('show-comments');
+            });
+        });
+
+    </script>
+</body>
+
+</html>

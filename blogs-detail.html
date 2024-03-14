@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Blog Details</title>
+  <link rel="stylesheet" href="blogs-detail.css">
+  <script src="https://kit.fontawesome.com/d5e11b4ec0.js" crossorigin="anonymous"></script>
+  
+</head>
+<body>
+  <div id="blog-details">
+    <div class="container">
+      <h1 class="sub-title">Blog Title</h1>
+      <div class="blog-content">
+        <img src="./img11.jpg" alt="Blog Image">
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Cupiditate mollitia quisquam temporibus sequi at nobis distinctio iste consequatur aperiam, laudantium incidunt. Libero nesciunt beatae dicta fugiat quam natus harum praesentium!
+        </p>
+        <div class="actions">
+          <button class="like-btn"><i class="far fa-heart"></i> Like</button>
+          <button class="comment-btn"><i class="far fa-comments"></i> Comment</button>
+        </div>
+      </div>
+      <div class="comments-section">
+        <h2>Comments</h2>
+        <div class="comment-list">
+          <!-- Comments will be dynamically added here -->
+        </div>
+        <form class="comment-form">
+          <input type="text" placeholder="Add a comment...">
+          <button type="submit">Submit</button>
+        </form>
+      </div>
+    </div>
+  </div>
+  <script >
+  // Sample data for blog post details (title, content, likes, comments)
+const blogDetails = [
+  {
+    id: 1,
+    title: "Blog Title 1",
+    content: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Cupiditate mollitia quisquam temporibus sequi at nobis distinctio iste consequatur aperiam, laudantium incidunt. Libero nesciunt beatae dicta fugiat quam natus harum praesentium!",
+    likes: 0,
+    comments: []
+  },
+  {
+    id: 2,
+    title: "Blog Title 2",
+    content: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Cupiditate mollitia quisquam temporibus sequi at nobis distinctio iste consequatur aperiam, laudantium incidunt. Libero nesciunt beatae dicta fugiat quam natus harum praesentium!",
+    likes: 0,
+    comments: []
+  },
+  {
+    id: 3,
+    title: "Blog Title 3",
+    content: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Cupiditate mollitia quisquam temporibus sequi at nobis distinctio iste consequatur aperiam, laudantium incidunt. Libero nesciunt beatae dicta fugiat quam natus harum praesentium!",
+    likes: 0,
+    comments: []
+  }
+];
+
+const likeBtn = document.querySelector('.like-btn');
+const commentBtn = document.querySelector('.comment-btn');
+const commentForm = document.querySelector('.comment-form');
+const commentList = document.querySelector('.comment-list');
+
+const blogId = window.location.search.substring(4); // Get blog ID from URL
+
+// Find the blog details by ID
+let blog = blogDetails.find(blog => blog.id == blogId);
+
+// Check if blog details are in localStorage, if not, initialize
+const storedBlog = JSON.parse(localStorage.getItem(`blog_${blogId}`));
+if (storedBlog) {
+  blog = storedBlog;
+}
+
+// Update UI with initial values
+updateLikesCount();
+displayComments();
+checkUserInteraction();
+
+// Function to update the likes count in the UI
+function updateLikesCount() {
+  likeBtn.innerHTML = `<i class="far fa-heart"></i> Like (${blog.likes})`;
+}
+
+// Function to display comments
+function displayComments() {
+  commentList.innerHTML = ''; // Clear previous comments
+  blog.comments.forEach(comment => {
+    const commentElement = document.createElement('div');
+    commentElement.classList.add('comment');
+    commentElement.textContent = comment;
+    commentList.appendChild(commentElement);
+  });
+}
+
+// Check if the user has interacted (liked or commented)
+function checkUserInteraction() {
+  if (localStorage.getItem(`liked_${blog.id}`) === 'true') {
+    likeBtn.classList.add('liked');
+    likeBtn.innerHTML = `<i class="fas fa-heart"></i> Liked (${blog.likes})`;
+    likeBtn.style.color = 'red';
+  }
+
+  if (localStorage.getItem(`commented_${blog.id}`) === 'true') {
+    commentForm.classList.add('show');
+    commentForm.style.display = 'block';
+  }
+}
+
+likeBtn.addEventListener('click', () => {
+  if (!likeBtn.classList.contains('liked')) {
+    blog.likes += 1; // Increment likes if not already liked
+    localStorage.setItem(`liked_${blog.id}`, 'true');
+    likeBtn.classList.add('liked');
+    likeBtn.innerHTML = `<i class="fas fa-heart"></i> Liked (${blog.likes})`;
+    likeBtn.style.color = 'red';
+    updateLikesCount(); // Update likes count in the UI
+  } else {
+    blog.likes -= 1; // Decrement likes if already liked
+    localStorage.removeItem(`liked_${blog.id}`);
+    likeBtn.classList.remove('liked');
+    likeBtn.innerHTML = `<i class="far fa-heart"></i> Like (${blog.likes})`;
+    likeBtn.style.color = '';
+    updateLikesCount(); // Update likes count in the UI
+  }
+
+  // Update blog in localStorage
+  localStorage.setItem(`blog_${blogId}`, JSON.stringify(blog));
+});
+
+commentBtn.addEventListener('click', () => {
+  if (!commentForm.classList.contains('show')) {
+    commentForm.classList.add('show');
+    commentForm.style.display = 'block'; // Show the comment form
+    localStorage.setItem(`commented_${blog.id}`, 'true');
+  } else {
+    commentForm.classList.remove('show');
+    commentForm.style.display = 'none'; // Hide the comment form
+    localStorage.removeItem(`commented_${blog.id}`);
+  }
+
+  // Update blog in localStorage
+  localStorage.setItem(`blog_${blogId}`, JSON.stringify(blog));
+});
+
+commentForm.addEventListener('submit', (e) => {
+  e.preventDefault();
+  const commentInput = commentForm.querySelector('input').value;
+  if (commentInput.trim() !== '') {
+    blog.comments.push(commentInput); // Add comment to blog post
+    localStorage.setItem(`commented_${blog.id}`, 'true');
+    displayComments(); // Update comments in the UI
+    commentForm.querySelector('input').value = '';
+  }
+
+  // Update blog in localStorage
+  localStorage.setItem(`blog_${blogId}`, JSON.stringify(blog));
+});
+
+
+
+  </script>
+</body>
+</html>
